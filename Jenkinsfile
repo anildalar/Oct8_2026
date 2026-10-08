@@ -1,10 +1,14 @@
 pipeline{
   agent any
+  parameters{
+     string(name: 'FIRST_NAME', defaultValue: 'ANIL')
+     string(name: 'LAST_NAME', defaultValue: 'DOLLOR')
+  }
   stages{
     stage("Stage 1"){
       steps{
         //sh 'linux command';
-        sh "echo RAHUL SHARMA"
+        sh "echo ${FIRST_NAME} SHARMA"
         sh ''' 
             whoami 
             ls -al
