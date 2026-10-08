@@ -18,6 +18,8 @@ pipeline{
     }
   }
   post{
-    
+    cleanup{
+      
+    }
   }
 }
