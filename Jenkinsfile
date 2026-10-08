@@ -11,7 +11,6 @@ pipeline{
           apt update -y
           apt upgrade -y
           apt install sudo docker.io docker-compose -y
-          sudo service docker status
           sudo service docker start
           sudo service docker status
         '''
