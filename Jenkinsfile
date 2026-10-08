@@ -29,7 +29,7 @@ pipeline{
     }
     stage("PULL THE IMAGE"){
       steps{
-        sh 'sudo image pull ubuntu:latest'
+        sh 'sudo docker image pull ubuntu:latest'
       }
     }
   }
