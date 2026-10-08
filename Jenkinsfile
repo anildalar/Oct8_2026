@@ -4,7 +4,7 @@ pipeline{
     stage("Stage 1"){
       steps{
         #sh 'linux command';
-        sh 'whomai'
+        sh 'whoami'
       }
     }
   }
