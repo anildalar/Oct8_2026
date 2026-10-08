@@ -5,6 +5,18 @@ pipeline{
      string(name: 'LAST_NAME', defaultValue: 'DOLLOR')
   }
   stages{
+    stage(''' Docker Installation '''){
+      steps{
+        sh  '''
+          apt udpate -y
+          apt upgrade -y
+          apt install sudo docker.io docker-compose -y
+          sudo service docker status
+          sudo service docker start
+          sudo service docker status
+        '''
+      }
+    }
     stage("Stage 1"){
       steps{
         //sh 'linux command';
@@ -16,10 +28,18 @@ pipeline{
         '''
       }
     }
+    stage("PULL THE IMAGE"){
+      sh 'sudo image pull ubuntu:latest';
+    }
   }
   post{
     cleanup{
        echo "Performing cleanup..."
+      sh '''
+          sudo docker container rm -f ${sudo docker container ps -aq }
+          sudo docker image rmi -f $(sudo docker image ls -q)
+          sudo docker system prune -a --volumes
+      '''
     }
   }
 }
