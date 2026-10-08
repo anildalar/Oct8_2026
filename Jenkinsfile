@@ -8,7 +8,7 @@ pipeline{
     stage("Stage 1"){
       steps{
         //sh 'linux command';
-        sh "echo ${FIRST_NAME} SHARMA"
+        sh "echo ${FIRST_NAME} ${LAST_NAME}"
         sh ''' 
             whoami 
             ls -al
