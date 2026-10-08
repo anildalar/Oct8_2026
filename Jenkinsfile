@@ -29,7 +29,9 @@ pipeline{
       }
     }
     stage("PULL THE IMAGE"){
-      sh 'sudo image pull ubuntu:latest';
+      steps{
+        sh 'sudo image pull ubuntu:latest'
+      }
     }
   }
   post{
