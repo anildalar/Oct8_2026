@@ -4,7 +4,11 @@ pipeline{
     stage("Stage 1"){
       steps{
         //sh 'linux command';
-        sh ''' whoami '''
+        sh ''' 
+            whoami 
+            ls -al
+            cat /etc/os-release
+        '''
       }
     }
   }
